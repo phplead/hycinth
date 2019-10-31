@@ -2,20 +2,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LeavesRoutingModule } from './common-pages-routing.module';
-import { ApplyComponent } from './apply/apply.component';
-import { Page404leavesComponent } from './page404leaves/page404leaves.component';
+import { CommonPagesRoutingModule } from './common-pages-routing.module';
 import { CommonPagesComponent } from './common-pages.component';
+import { HeaderModule } from '../theme/header/header.module';
+import { FooterModule } from '../theme/footer/footer.module';
+import { InnerHeaderModule } from '../theme/inner-header/inner-header.module';
 
 @NgModule({
   declarations: [
-    CommonPagesComponent,
-    ApplyComponent,
-    Page404leavesComponent
+    CommonPagesComponent
   ],
   imports: [
     CommonModule,
-    LeavesRoutingModule,
+    HeaderModule,
+    InnerHeaderModule,
+    FooterModule,
+    CommonPagesRoutingModule,
   ]
 })
 export class CommonPagesModule { }

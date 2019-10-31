@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 declare var $: any;
 import * as AOS from 'aos';
-import { AuthenticationService } from '../../services/authentication.service';
+import { AuthenticationService } from '../../common-pages/auth/authentication.service';
 
 @Component({
   selector: 'app-inner-header',

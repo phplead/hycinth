@@ -5,12 +5,10 @@ declare  var $: any;
 @Component({
   selector: 'app-root',
   template: '<router-outlet></router-outlet>',
-  // templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 
 export class AppComponent implements AfterViewInit {
-  currentUrl  = '/';
   constructor(private router: Router) {
     this.router.events.subscribe((evt) => {
       if(evt instanceof NavigationEnd) {
@@ -24,7 +22,6 @@ export class AppComponent implements AfterViewInit {
         $("#tool-nav").removeClass("active");
         $('#tool-nav ul li').removeClass('cst-animate');
 
-        this.currentUrl = evt.url;
         window.scrollTo(0, 0);
       }
     });
