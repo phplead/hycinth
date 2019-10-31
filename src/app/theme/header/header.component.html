@@ -1,0 +1,272 @@
+<header class="site-header">
+    <!-- header starts here -->
+    <div class="top-bar">
+        <div class="container">
+           <div class="top-menus-wrap">
+            <button class="menu-toggle" type="button">
+                <span><i class="fas fa-bars"></i></span> Menu
+            </button>
+            <a [routerLink]="[ '/' ]" class="brand-name"><img src="./assets/images/logo.svg"></a>
+            <button class="toolbox mob-hide" type="button">
+                <span><i class="fas fa-wrench"></i></span> Toolbox
+            </button>
+            <!-- only for mobile -->
+            <ul class="mob-side-menus">
+                <!-- <li class="user">
+                    <span>
+                        <i class="fas fa-user"></i>
+                    </span>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink" x-placement="bottom-start" style="position: absolute; transform: translate3d(0px, 19px, 0px); top: 0px; left: 0px; will-change: transform;">
+                            <a class="dropdown-item" [routerLink]="[ '/' ]" (click)="auth.logout()">Logout</a>
+                        </div>
+                    </div>
+                </li> -->
+            <li>
+            <button class="toolbox" type="button">
+                <span><i class="fas fa-wrench"></i></span> Toolbox
+            </button>
+          </li>
+          <li>
+              <div class="icon-grp">
+                 <a href="javascript:void(0);" class=""><i class="fas fa-envelope"></i></a>
+                  <a href="javascript:void(0);" class="fav-list">
+                        <i class="fas fa-heart"></i>
+                        <sup>2</sup>
+                    </a>
+              </div>
+          </li>
+  
+        </ul>
+       </div>
+        <!-- ------------------------ -->
+        </div>
+    </div>
+    <div class="header-links-wrap">
+        <div class="container">
+            <ul class="head-links">
+                <li><a [routerLink]="[ '/' ]">Home</a></li>
+                <li><a routerLink="/vendor-register">New Vendors</a></li>
+                <li class="mob-hide">
+                    <a href="javascript:void(0);" class="fav-list">
+                        <i class="fas fa-heart"></i>
+                        <sup>2</sup>
+                    </a>
+                </li>
+                <li>
+                    <div class="header-btns">
+                        <ng-container *ngIf="auth.currentUserValue; else elseTemplate">
+                                <a [routerLink]="[ '/'+auth.currentUserValue.role.toLowerCase() ]" 
+                                class="cstm-btn solid-btn">{{auth.currentUserValue.firstName}} {{auth.currentUserValue.lastName}}</a>
+                                <a [routerLink]="[ '/' ]" (click)="auth.logout()" class="cstm-btn solid-btn">Logout</a>                            
+                        </ng-container>
+                        <ng-template #elseTemplate>
+                            <a [routerLink]="[ '/login' ]" class="cstm-btn solid-btn">Login</a>
+                            <a [routerLink]="[ '/user-register' ]" class="cstm-btn">Sign Up</a>
+                        </ng-template>
+                        
+                        
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+  
+   
+  
+    <a href="javascript:void(0);" id="calender-toggle"><span><i class="fas fa-calendar-alt"></i></span></a>
+  </header>
+   <!--For Menu-->
+   <nav id="main-navigation" class="">
+        <div class="container">
+            <ul id="menus-list" class="menu-list">
+                <li>
+                    <a href="javascript:void(0);" style="background:url(./assets/images/menu-home-img.png)">
+                        <span class="nav-item-icon"><i class="fas fa-home"></i></span>
+                        <h3>Home</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" style="background:url(./assets/images/menu-about.png)">
+                        <span class="nav-item-icon"><i class="fas fa-address-card"></i></span>
+                        <h3>About Us</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" style="background:url(./assets/images/menu-faq.png)">
+                        <span class="nav-item-icon"><i class="fas fa-comment-dots"></i></span>
+                        <h3>FAQ</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" style="background:url(./assets/images/menu-contact-us.png)">
+                        <span class="nav-item-icon"><i class="fas fa-id-badge"></i></span>
+                        <h3>Contact Us</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" style="background:url(./assets/images/menu-policies.png)">
+                        <span class="nav-item-icon"><i class="fas fa-clipboard"></i></span>
+                        <h3>Polices</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" style="background:url(./assets/images/menu-forum.png)">
+                        <span class="nav-item-icon"><i class="fas fa-users"></i></span>
+                        <h3>Forum</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" style="background:url(./assets/images/menu-testimonial.png)">
+                        <span class="nav-item-icon"><i class="fas fa-star"></i></span>
+                        <h3>Testimonials</h3>
+                    </a>
+                </li>
+                <ng-container *ngIf="!auth.currentUserValue">
+                <li>
+                    <a routerLink="/vendor-register" style="background:url(./assets/images/menu-vendor.png)">
+                        <span class="nav-item-icon"><i class="fas fa-star"></i></span>
+                        <h3>New Vendor</h3>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/user-register" style="background:url(./assets/images/menu-sign.png)">
+                        <span class="nav-item-icon"><i class="fas fa-star"></i></span>
+                        <h3>SignUp</h3>
+                    </a>
+                </li>
+            </ng-container>
+  
+            </ul>
+        </div>
+        <a href="javascript:void(0);" class="nav-close-btn"><i class="fas fa-times"></i></a>
+    </nav>
+    <!--For toolbox-->
+    <nav id="tool-nav" class="">
+        <div class="container">
+            <ul id="menus-list" class="menu-list">
+                <li>
+                    <a href="javascript:void(0);">
+                        <span class="nav-item-icon">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="512px" height="511px" viewBox="42.14 177.445 512 511" enable-background="new 42.14 177.445 512 511"
+	 xml:space="preserve">
+<path fill="#FFFFFF" stroke="#2C3E5D" stroke-width="7" stroke-miterlimit="10" d="M548.048,483.959l-67.685,4.359
+	c-3.789,12.77-8.841,24.988-15.076,36.475l44.754,50.951l-70.666,70.661l-50.928-44.765c-11.493,6.23-23.711,11.28-36.475,15.061
+	l-4.375,67.7l-99.934-0.01l-4.366-67.693c-12.755-3.78-24.973-8.83-36.467-15.061l-50.936,44.765l-70.66-70.684l44.753-50.926
+	c-6.236-11.494-11.287-23.711-15.076-36.475l-67.685-4.369v-99.933l67.685-4.368c3.79-12.755,8.851-24.982,15.076-36.466
+	l-44.753-50.926l70.666-70.676l50.926,44.753c11.495-6.236,23.711-11.28,36.483-15.07l4.368-67.693h99.914l4.374,67.693
+	c12.761,3.79,24.982,8.831,36.476,15.07l50.942-44.753l70.66,70.676l-44.754,50.926c6.229,11.493,11.287,23.711,15.076,36.466
+	l67.685,4.368L548.048,483.959z"/>
+</svg></span>
+                        <h3>Event Checklist</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <span class="nav-item-icon">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="512px" height="511px" viewBox="42.14 177.445 512 511" enable-background="new 42.14 177.445 512 511"
+	 xml:space="preserve">
+<path fill="#FFFFFF" stroke="#2C3E5D" stroke-width="7" stroke-miterlimit="10" d="M548.048,483.959l-67.685,4.359
+	c-3.789,12.77-8.841,24.988-15.076,36.475l44.754,50.951l-70.666,70.661l-50.928-44.765c-11.493,6.23-23.711,11.28-36.475,15.061
+	l-4.375,67.7l-99.934-0.01l-4.366-67.693c-12.755-3.78-24.973-8.83-36.467-15.061l-50.936,44.765l-70.66-70.684l44.753-50.926
+	c-6.236-11.494-11.287-23.711-15.076-36.475l-67.685-4.369v-99.933l67.685-4.368c3.79-12.755,8.851-24.982,15.076-36.466
+	l-44.753-50.926l70.666-70.676l50.926,44.753c11.495-6.236,23.711-11.28,36.483-15.07l4.368-67.693h99.914l4.374,67.693
+	c12.761,3.79,24.982,8.831,36.476,15.07l50.942-44.753l70.66,70.676l-44.754,50.926c6.229,11.493,11.287,23.711,15.076,36.466
+	l67.685,4.368L548.048,483.959z"/>
+</svg></span>
+                        <h3>Budgeting tool</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <span class="nav-item-icon">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="512px" height="511px" viewBox="42.14 177.445 512 511" enable-background="new 42.14 177.445 512 511"
+	 xml:space="preserve">
+<path fill="#FFFFFF" stroke="#2C3E5D" stroke-width="7" stroke-miterlimit="10" d="M548.048,483.959l-67.685,4.359
+	c-3.789,12.77-8.841,24.988-15.076,36.475l44.754,50.951l-70.666,70.661l-50.928-44.765c-11.493,6.23-23.711,11.28-36.475,15.061
+	l-4.375,67.7l-99.934-0.01l-4.366-67.693c-12.755-3.78-24.973-8.83-36.467-15.061l-50.936,44.765l-70.66-70.684l44.753-50.926
+	c-6.236-11.494-11.287-23.711-15.076-36.475l-67.685-4.369v-99.933l67.685-4.368c3.79-12.755,8.851-24.982,15.076-36.466
+	l-44.753-50.926l70.666-70.676l50.926,44.753c11.495-6.236,23.711-11.28,36.483-15.07l4.368-67.693h99.914l4.374,67.693
+	c12.761,3.79,24.982,8.831,36.476,15.07l50.942-44.753l70.66,70.676l-44.754,50.926c6.229,11.493,11.287,23.711,15.076,36.466
+	l67.685,4.368L548.048,483.959z"/>
+</svg></span>
+                        <h3>Guest List</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <span class="nav-item-icon">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="512px" height="511px" viewBox="42.14 177.445 512 511" enable-background="new 42.14 177.445 512 511"
+	 xml:space="preserve">
+<path fill="#FFFFFF" stroke="#2C3E5D" stroke-width="7" stroke-miterlimit="10" d="M548.048,483.959l-67.685,4.359
+	c-3.789,12.77-8.841,24.988-15.076,36.475l44.754,50.951l-70.666,70.661l-50.928-44.765c-11.493,6.23-23.711,11.28-36.475,15.061
+	l-4.375,67.7l-99.934-0.01l-4.366-67.693c-12.755-3.78-24.973-8.83-36.467-15.061l-50.936,44.765l-70.66-70.684l44.753-50.926
+	c-6.236-11.494-11.287-23.711-15.076-36.475l-67.685-4.369v-99.933l67.685-4.368c3.79-12.755,8.851-24.982,15.076-36.466
+	l-44.753-50.926l70.666-70.676l50.926,44.753c11.495-6.236,23.711-11.28,36.483-15.07l4.368-67.693h99.914l4.374,67.693
+	c12.761,3.79,24.982,8.831,36.476,15.07l50.942-44.753l70.66,70.676l-44.754,50.926c6.229,11.493,11.287,23.711,15.076,36.466
+	l67.685,4.368L548.048,483.959z"/>
+</svg></span>
+                        <h3>Calculator</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <span class="nav-item-icon">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="512px" height="511px" viewBox="42.14 177.445 512 511" enable-background="new 42.14 177.445 512 511"
+	 xml:space="preserve">
+<path fill="#FFFFFF" stroke="#2C3E5D" stroke-width="7" stroke-miterlimit="10" d="M548.048,483.959l-67.685,4.359
+	c-3.789,12.77-8.841,24.988-15.076,36.475l44.754,50.951l-70.666,70.661l-50.928-44.765c-11.493,6.23-23.711,11.28-36.475,15.061
+	l-4.375,67.7l-99.934-0.01l-4.366-67.693c-12.755-3.78-24.973-8.83-36.467-15.061l-50.936,44.765l-70.66-70.684l44.753-50.926
+	c-6.236-11.494-11.287-23.711-15.076-36.475l-67.685-4.369v-99.933l67.685-4.368c3.79-12.755,8.851-24.982,15.076-36.466
+	l-44.753-50.926l70.666-70.676l50.926,44.753c11.495-6.236,23.711-11.28,36.483-15.07l4.368-67.693h99.914l4.374,67.693
+	c12.761,3.79,24.982,8.831,36.476,15.07l50.942-44.753l70.66,70.676l-44.754,50.926c6.229,11.493,11.287,23.711,15.076,36.466
+	l67.685,4.368L548.048,483.959z"/>
+</svg></span>
+                        <h3>Forum</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <span class="nav-item-icon">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="512px" height="511px" viewBox="42.14 177.445 512 511" enable-background="new 42.14 177.445 512 511"
+	 xml:space="preserve">
+<path fill="#FFFFFF" stroke="#2C3E5D" stroke-width="7" stroke-miterlimit="10" d="M548.048,483.959l-67.685,4.359
+	c-3.789,12.77-8.841,24.988-15.076,36.475l44.754,50.951l-70.666,70.661l-50.928-44.765c-11.493,6.23-23.711,11.28-36.475,15.061
+	l-4.375,67.7l-99.934-0.01l-4.366-67.693c-12.755-3.78-24.973-8.83-36.467-15.061l-50.936,44.765l-70.66-70.684l44.753-50.926
+	c-6.236-11.494-11.287-23.711-15.076-36.475l-67.685-4.369v-99.933l67.685-4.368c3.79-12.755,8.851-24.982,15.076-36.466
+	l-44.753-50.926l70.666-70.676l50.926,44.753c11.495-6.236,23.711-11.28,36.483-15.07l4.368-67.693h99.914l4.374,67.693
+	c12.761,3.79,24.982,8.831,36.476,15.07l50.942-44.753l70.66,70.676l-44.754,50.926c6.229,11.493,11.287,23.711,15.076,36.466
+	l67.685,4.368L548.048,483.959z"/>
+</svg></span>
+                        <h3>Vendor Manager</h3>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">
+                        <span class="nav-item-icon">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="512px" height="511px" viewBox="42.14 177.445 512 511" enable-background="new 42.14 177.445 512 511"
+	 xml:space="preserve">
+<path fill="#FFFFFF" stroke="#2C3E5D" stroke-width="7" stroke-miterlimit="10" d="M548.048,483.959l-67.685,4.359
+	c-3.789,12.77-8.841,24.988-15.076,36.475l44.754,50.951l-70.666,70.661l-50.928-44.765c-11.493,6.23-23.711,11.28-36.475,15.061
+	l-4.375,67.7l-99.934-0.01l-4.366-67.693c-12.755-3.78-24.973-8.83-36.467-15.061l-50.936,44.765l-70.66-70.684l44.753-50.926
+	c-6.236-11.494-11.287-23.711-15.076-36.475l-67.685-4.369v-99.933l67.685-4.368c3.79-12.755,8.851-24.982,15.076-36.466
+	l-44.753-50.926l70.666-70.676l50.926,44.753c11.495-6.236,23.711-11.28,36.483-15.07l4.368-67.693h99.914l4.374,67.693
+	c12.761,3.79,24.982,8.831,36.476,15.07l50.942-44.753l70.66,70.676l-44.754,50.926c6.229,11.493,11.287,23.711,15.076,36.466
+	l67.685,4.368L548.048,483.959z"/>
+</svg></span>
+                        <h3>Favorite</h3>
+                    </a>
+                </li>
+  
+            </ul>
+        </div>
+        <a href="javascript:void(0);" class="nav-close-btn"><i class="fas fa-times"></i></a>
+    </nav>
