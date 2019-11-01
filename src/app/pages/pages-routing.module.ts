@@ -8,43 +8,38 @@ const routes: Routes = [
     path: '', component: PagesComponent, children: [
       {
         path: '',
-        loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+        loadChildren: './home/home.module#HomeModule'
       },
       {
         path: 'login',
-        loadChildren: () => import('./auth/login/login.module').then(m=>m.LoginModule)
+        loadChildren: './auth/login/login.module#LoginModule'
       },
       {
         path: 'user',
-        loadChildren: () => import('./user/user.module').then(m => m.UserModule),
+        loadChildren: './user/user.module#UserModule',
         canActivate: [ UserGuard ]
       },
       {
         path: 'vendor',
-        loadChildren: () => import('./vendor/vendor.module').then(m => m.VendorModule),
+        loadChildren: './vendor/vendor.module#VendorModule',
         canActivate: [ VendorGuard ]
       },
       {
         path: 'user-register',
-        loadChildren: () => import('./user/user-pages/user-register/user-register.module').then(m => m.UserRegisterModule)
+        loadChildren: './user/user-pages/user-register/user-register.module#UserRegisterModule'
       },
       {
         path: 'vendor-register',
-        loadChildren: () => import('./vendor/vendor-pages/vender-register/vendor-register.module').then(m => m.VendorRegisterModule)
+        loadChildren: './vendor/vendor-pages/vender-register/vendor-register.module#VendorRegisterModule'
       },
       {
         path: 'auth',
-        loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+        loadChildren: './auth/auth.module#AuthModule'
       },
       {
         path: 'password',
-        loadChildren: () => import('./password/password.module').then(m => m.PasswordModule)
+        loadChildren: './password/password.module#PasswordModule'
       },
-
-      // { path: 'balance', loadChildren: () => import(`./balance/balance.module`).then(m => m.BalanceModule) },
-      // {
-      //   path: '', redirectTo: 'login', pathMatch: 'full'
-      // }
     ]
   }
 ];
