@@ -37,8 +37,8 @@ app.get('*', (req, res) => {
 app.use(errorHandler);
 
 // start server
-const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 4000;
-const host = '192.168.0.27';
+const port = process.env.NODE_ENV === 'production' ? (process.env.PORT || 80) : 6633;
+const host = '192.168.0.41';
 const server = app.listen(port, host, function () {
     console.log('Server listening on port ' + port);
 });
