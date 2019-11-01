@@ -4,13 +4,11 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import {SnotifyService} from 'ng-snotify';
 import { AlertService } from '../pages/alert/alert.service';
 
 @Injectable()
 export class HttpProcessInterceptor implements HttpInterceptor {
      constructor(
-       private snotifyService: SnotifyService,
        private alertService: AlertService,
        private router: Router,
     ) { }

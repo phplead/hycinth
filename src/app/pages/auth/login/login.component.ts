@@ -5,6 +5,8 @@ import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from '../authentication.service';
 
+declare var $: any;
+
 @Component({ 
     templateUrl: 'login.component.html',
     styleUrls: ['login.component.scss']
@@ -64,7 +66,15 @@ export class LoginComponent implements OnInit, AfterContentInit {
     }
 
     ngAfterContentInit(): void {
-       
+        $('.video').parent().click(function () {
+            if($(this).children(".video").get(0).paused){
+                $(this).children(".video").get(0).play();
+                $(this).children(".playButton").fadeOut();
+            }else{
+                $(this).children(".video").get(0).pause();
+                $(this).children(".playButton").fadeIn();
+            }
+          });
     }
 
     // convenience getter for easy access to form fields
@@ -113,4 +123,23 @@ export class LoginComponent implements OnInit, AfterContentInit {
         )
         console.log('in');
     }
+
+     // testimonial slider
+  carouselTestimonials = {
+    loop: true,
+    margin: 10,
+    nav: true,
+    autoplay: true,
+    responsive: {
+        0: {
+            items: 1
+        },
+        600: {
+            items: 1
+        },
+        1000: {
+            items: 1
+        }
+    }
+  }
 }

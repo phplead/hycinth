@@ -1,0 +1,12 @@
+﻿{
+    "connectionString": "mongodb+srv://deftsoft:deftsoft123@mongofirst-uyd7g.mongodb.net/gameinfo?retryWrites=true&w=majority",
+    "secret": "sdfdfdf312fdsfsdfdffsdfd12312vdfgfdg",
+    "admin_email": "teamphp00@gmail.com",
+    "admin_password": "xyz123456abc",
+    "FACEBOOK_APP_ID":"456595108537776",
+    "FACEBOOK_APP_SECRET":"e3af472faa347efbf1f03fa3361c51ac",
+    "fb_redirect_uri":"/auth/fb/callback",
+    "GOOGLE_CLIENT_ID": "251297478182-8k9fu2blm008efc11diomnea9a9d5688.apps.googleusercontent.com",
+    "GOOGLE_CLIENT_SECRET": "MfWHlil5OW332K64O9eoqgj-",
+    "google_redirect_uri": "/auth/google/callback"
+}

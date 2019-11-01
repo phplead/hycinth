@@ -292,6 +292,9 @@
     .top-bar .brand-name img {
     height: 75px;
     }
+    .show-for-mob{
+        display: inline-block;
+      }
     .banner-content h1{
         font-size: 34px;
     }
@@ -310,9 +313,8 @@
         width: 100%;
         margin-bottom: 20px;
     }
-    .signUp-form{
-        width: 100%;
-        padding-left:0;
+    .signUp-form-wrap.mr-top.sec-card{
+        margin-top: -120px;
     }
     .mob-side-menus{
      display: flex;
@@ -324,6 +326,10 @@
     }
     .top-Mob-nav{
         display: block;
+    }
+    .log-sign-banner {
+        min-height: 375px;
+        padding: 170px 0px 70px;
     }
      .top-bar.inner-header .brand-name{
     position: absolute;
@@ -456,6 +462,9 @@
 
     .sec-card {
         margin-top: -130px;
+    }
+    .signUp-form-wrap.mr-top.sec-card{
+        margin-top: -100px;   
     }
 
     .top-bar.inner-header ul.inn-top-navigation > li:nth-child(3),
@@ -602,7 +611,9 @@
     ul.Contact-info li {
         width: 100%;
     }
-
+    .main-banner{
+        height: 600px;
+    }
     .head-links li {
         padding-left: 0
     }

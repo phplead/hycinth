@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
@@ -7,12 +7,25 @@ import { AuthenticationService } from '../../../auth/authentication.service';
 import { MustMatch } from 'src/app/helpers';
 import { AlertService } from '../../../alert/alert.service';
 
+declare var $: any;
+
 @Component({
   selector: 'app-user-register',
   templateUrl: './user-register.component.html',
   styleUrls: ['./user-register.component.scss']
 })
-export class UserRegisterComponent implements OnInit {
+export class UserRegisterComponent implements OnInit, AfterContentInit {
+    ngAfterContentInit(): void {
+        $('.video').parent().click(function () {
+            if($(this).children(".video").get(0).paused){
+                $(this).children(".video").get(0).play();
+                $(this).children(".playButton").fadeOut();
+            }else{
+                $(this).children(".video").get(0).pause();
+                $(this).children(".playButton").fadeIn();
+            }
+          });
+    }
   registerForm: FormGroup;
   loading = false;
   submitted = false;
@@ -75,4 +88,23 @@ export class UserRegisterComponent implements OnInit {
 error(message: string) {
     this.alertService.error(message);
 }
+
+     // testimonial slider
+     carouselTestimonials = {
+      loop: true,
+      margin: 10,
+      nav: true,
+      autoplay: true,
+      responsive: {
+          0: {
+              items: 1
+          },
+          600: {
+              items: 1
+          },
+          1000: {
+              items: 1
+          }
+      }
+    }
 }

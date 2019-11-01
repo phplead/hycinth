@@ -3,7 +3,7 @@ import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 import { AdminGuard } from './guards';
 
 const routes: Routes = [
-  { 
+  {
     path: '',
     loadChildren: './pages/pages.module#PagesModule'
   },

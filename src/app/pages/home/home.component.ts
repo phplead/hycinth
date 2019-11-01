@@ -46,28 +46,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     autoplay: true,
     nav: true,
     dots: false,
-    autoplayTimeout: 2000,
-    responsive: {
-        0: {
-            items: 2,
-        },
-        600: {
-            items: 2,
-        },
-        991: {
-            items: 4,
-        }
-    }
-  }
-
-  carouselOptionsEventsTwo = {
-    loop: true,
-    margin: 10,
-    responsiveClass: true,
-    autoplay: true,
-    nav: true,
-    dots: false,
-    autoplayTimeout: 2000,
+    autoplayTimeout: 3000,
     responsive: {
         0: {
             items: 2,
@@ -135,7 +114,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     setTimeout(() =>{
       this.showEventsOne = true;
-    },1000)
+    },1500)
 
     $( ".form-tab-slider .owl-prev").html('<i class="fas fa-chevron-left"></i>');
     $( ".form-tab-slider .owl-next").html('<i class="fas fa-chevron-right"></i>');
