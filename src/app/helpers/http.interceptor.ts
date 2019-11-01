@@ -5,7 +5,7 @@ import { Observable, throwError } from 'rxjs';
 import { retry, catchError, map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import {SnotifyService} from 'ng-snotify';
-import { AlertService } from '../common-pages/alert/alert.service';
+import { AlertService } from '../pages/alert/alert.service';
 
 @Injectable()
 export class HttpProcessInterceptor implements HttpInterceptor {

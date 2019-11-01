@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 declare var $: any;
 import * as AOS from 'aos';
-import { AuthenticationService } from '../../common-pages/auth/authentication.service';
+import { AuthenticationService } from '../../pages/auth/authentication.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +11,7 @@ import { AuthenticationService } from '../../common-pages/auth/authentication.se
 export class HeaderComponent implements OnInit, AfterViewInit {
   
 
-  constructor(private auth: AuthenticationService) {   }
+  constructor(public auth: AuthenticationService) {   }
 
   ngOnInit() {
     AOS.init();
@@ -19,27 +19,19 @@ export class HeaderComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     //navigation js
-    $(".menu-toggle").click(function(){
+    $(".menu-toggle").click(function() {
       $(this).addClass("active");
-    $("#main-navigation").addClass("active");
-    $("body").addClass("body-fixed");
+      $("#main-navigation").addClass("active");
+      $("body").addClass("body-fixed");
     });
 
-    $(".nav-close-btn").click(function(){
-    $("#main-navigation").removeClass("active");
-    $(".menu-toggle").removeClass("active");
-    $("body").removeClass("body-fixed");
-    });
+    
 
     //Toolbox animation
-    $(".toolbox").click(function(){
+    $(".toolbox").click(function() {
         $('#tool-nav ul li').addClass('cst-animate');
         $("body").addClass("body-fixed");
     }); 
-    $(".nav-close-btn").click(function(){
-        $('#tool-nav ul li').removeClass('cst-animate');
-        $("body").removeClass("body-fixed");
-    });
 
     $(".toolbox").click(function () {
         $(this).addClass("active");

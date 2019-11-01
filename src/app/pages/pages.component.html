@@ -1,0 +1,15 @@
+<!-- home page header -->
+<ng-container *ngIf="currentUrl === '/'; else elseTemplate">
+    <app-header></app-header>    
+</ng-container>
+
+<!-- inner page header -->
+<ng-template #elseTemplate>
+    <app-inner-header></app-inner-header>
+</ng-template>
+
+<!-- routes -->
+<router-outlet></router-outlet>
+
+<!-- footer -->
+<app-footer></app-footer>

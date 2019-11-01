@@ -1,0 +1,64 @@
+<nav id="main-navigation" class="">
+    <div class="container">
+        <ul id="menus-list" class="menu-list">
+            <li>
+                <a href="javascript:void(0);" style="background:url(./assets/images/menu-home-img.png)">
+                    <span class="nav-item-icon"><i class="fas fa-home"></i></span>
+                    <h3>Home</h3>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" style="background:url(./assets/images/menu-about.png)">
+                    <span class="nav-item-icon"><i class="fas fa-address-card"></i></span>
+                    <h3>About Us</h3>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" style="background:url(./assets/images/menu-faq.png)">
+                    <span class="nav-item-icon"><i class="fas fa-comment-dots"></i></span>
+                    <h3>FAQ</h3>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" style="background:url(./assets/images/menu-contact-us.png)">
+                    <span class="nav-item-icon"><i class="fas fa-id-badge"></i></span>
+                    <h3>Contact Us</h3>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" style="background:url(./assets/images/menu-policies.png)">
+                    <span class="nav-item-icon"><i class="fas fa-clipboard"></i></span>
+                    <h3>Polices</h3>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" style="background:url(./assets/images/menu-forum.png)">
+                    <span class="nav-item-icon"><i class="fas fa-users"></i></span>
+                    <h3>Forum</h3>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0);" style="background:url(./assets/images/menu-testimonial.png)">
+                    <span class="nav-item-icon"><i class="fas fa-star"></i></span>
+                    <h3>Testimonials</h3>
+                </a>
+            </li>
+            <ng-container *ngIf="!auth.currentUserValue">
+            <li>
+                <a routerLink="/vendor-register" style="background:url(./assets/images/menu-vendor.png)">
+                    <span class="nav-item-icon"><i class="fas fa-star"></i></span>
+                    <h3>New Vendor</h3>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/user-register" style="background:url(./assets/images/menu-sign.png)">
+                    <span class="nav-item-icon"><i class="fas fa-star"></i></span>
+                    <h3>SignUp</h3>
+                </a>
+            </li>
+        </ng-container>
+
+        </ul>
+    </div>
+    <a href="javascript:void(0);" (click)="close_nav()" class="nav-close-btn"><i class="fas fa-times"></i></a>
+</nav>

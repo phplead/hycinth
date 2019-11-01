@@ -5,16 +5,20 @@ import { AdminGuard } from './guards';
 const routes: Routes = [
   { 
     path: '',
-    loadChildren: () => import(`./common-pages/common-pages.module`).then(m => m.CommonPagesModule)
+    loadChildren: () => import(`./pages/pages.module`).then(m => m.PagesModule)
   },
   {
     path: 'admin',
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule),
     canActivate: [ AdminGuard ]
   },
   {
     path: 'error',
-    loadChildren: () => import('./common-pages/error/error.module').then(m => m.ErrorModule)
+    // loadChildren: async () => {
+    //   const { ErrorModule } = await import('./pages/error/error.module');
+    //   return ErrorModule
+    // } 
+    loadChildren: () => import('./pages/error/error.module').then(m => m.ErrorModule)
   },
   {
     path: '**',

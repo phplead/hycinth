@@ -533,7 +533,9 @@ section::after,
     transition: opacity 0.5s, visibility 0.5s;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center;    
+}
+#tool-nav {
     overflow-y: auto;
     overflow-x: hidden;
 }
