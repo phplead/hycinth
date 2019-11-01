@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 declare var $: any;
-import * as AOS from 'aos';
 import { AuthenticationService } from '../../pages/auth/authentication.service';
 
 @Component({
@@ -12,9 +11,7 @@ export class InnerHeaderComponent implements OnInit, AfterViewInit {
   
   constructor(public auth: AuthenticationService) {   }
 
-  ngOnInit() {
-    AOS.init();
-  }
+  ngOnInit() {  }
 
   ngAfterViewInit(): void {
     //navigation js

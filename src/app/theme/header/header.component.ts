@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 declare var $: any;
-import * as AOS from 'aos';
+
 import { AuthenticationService } from '../../pages/auth/authentication.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   constructor(public auth: AuthenticationService) {   }
 
   ngOnInit() {
-    AOS.init();
+    
   }
 
   ngAfterViewInit(): void {
@@ -23,9 +23,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
       $(this).addClass("active");
       $("#main-navigation").addClass("active");
       $("body").addClass("body-fixed");
-    });
-
-    
+    });    
 
     //Toolbox animation
     $(".toolbox").click(function() {

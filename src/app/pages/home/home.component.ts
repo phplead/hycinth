@@ -1,6 +1,5 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 declare var $: any;
-import * as AOS from 'aos';
 
 @Component({
   selector: 'app-home',
@@ -110,7 +109,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    AOS.refresh();
 
     setTimeout(() =>{
       this.showEventsOne = true;
