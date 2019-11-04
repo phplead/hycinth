@@ -667,8 +667,8 @@ body.body-fixed {
     transform: translateY(0) rotate(720deg);
 }
 
-nav#tool-nav #menus-list li a {
-    transform: rotate(0deg) !important;
+nav#tool-nav #menus-list li a:hover {
+    transform: scale(1.1) !important;
 }
 
 /************/
