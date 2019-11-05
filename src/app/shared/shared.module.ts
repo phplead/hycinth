@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { OwlModule } from 'ngx-owl-carousel';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import {NgxPaginationModule} from 'ngx-pagination';
@@ -14,6 +14,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
     OwlModule,
     RouterModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule
   ],

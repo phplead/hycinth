@@ -3,9 +3,7 @@ import { AuthenticationService } from '../auth/authentication.service';
 
 @Component({
   selector: 'app-admin',
-  // templateUrl: './admin.component.html',
-  template: `<router-outlet></router-outlet>`,
-  styleUrls: ['./admin.component.scss']
+  template: `<router-outlet></router-outlet>`
 })
 export class AdminComponent implements OnInit {
 

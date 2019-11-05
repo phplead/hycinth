@@ -1,19 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminComponent } from './admin.component';
-import { AdminRoutingModule } from './admin-routing.module';
 import { SharedModule } from '../../shared/shared.module';
-import { AdminHeaderModule } from './theme/admin-header/admin-header.module';
-import { AdminSidebarModule } from './theme/admin-sidebar/admin-sidebar.module';
+import { AdminGuard } from './../../guards';
+import { Routes, RouterModule } from '@angular/router';
+
+const adminRoutes: Routes = [
+  {
+    path: '',
+    loadChildren: './admin-pages/admin-pages.module#AdminPagesModule',
+    canActivate: [ AdminGuard ]
+  },
+  {
+    path: 'admin-login',
+    loadChildren: './admin-pages/admin-login/admin-login.module#AdminLoginModule'
+  }
+];
 
 @NgModule({
   declarations: [AdminComponent],
   imports: [
     CommonModule,
     SharedModule,
-    AdminHeaderModule,
-    AdminSidebarModule,
-    AdminRoutingModule
+    RouterModule.forChild(adminRoutes)
   ]
 })
 export class AdminModule { }

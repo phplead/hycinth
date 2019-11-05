@@ -6,10 +6,10 @@ const routes: Routes = [
     path: '',
     loadChildren: './pages/pages.module#PagesModule'
   },
-  // {
-  //   path: 'admin',
-  //   loadChildren: './pages/admin/admin.module#AdminModule',
-  // },
+  {
+    path: 'admin',
+    loadChildren: './pages/admin/admin.module#AdminModule',
+  },
   {
     path: 'error',
     loadChildren: './pages/error/error.module#ErrorModule'
