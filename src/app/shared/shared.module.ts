@@ -4,6 +4,8 @@ import { OwlModule } from 'ngx-owl-carousel';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { TranslateModule } from '@ngx-translate/core';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [],
@@ -12,8 +14,10 @@ import { HttpClientModule } from '@angular/common/http';
     OwlModule,
     RouterModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
-  exports: [ OwlModule, RouterModule, ReactiveFormsModule, HttpClientModule ]
+  exports: [ OwlModule, RouterModule, ReactiveFormsModule, HttpClientModule,
+    TranslateModule, NgxPaginationModule ]
 })
 export class SharedModule { }

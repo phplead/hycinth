@@ -9,6 +9,7 @@ import { Router, NavigationEnd } from '@angular/router';
 
 export class PagesComponent implements OnInit {
   currentUrl  = '/';
+  
   constructor(private router: Router) {
     this.router.events.subscribe((evt) => {
       if(evt instanceof NavigationEnd) {

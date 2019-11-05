@@ -14,9 +14,17 @@ export class JwtInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // add authorization header with jwt token if available
         const currentUser: any = this.auth.currentUser;
-        let api = environment.apiUrl;
+        let api = environment.apiUrl;  
+        
+        let query = '';
+        if(request.url.startsWith('/assets/i18n')) {
+            query = request.url;
+        } else {
+            query = api + request.url;
+        }
+
         request = request.clone({
-            url: api + request.url
+            url: query
         });
 
         if (currentUser && currentUser.token) {

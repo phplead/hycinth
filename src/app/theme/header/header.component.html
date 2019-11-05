@@ -38,7 +38,7 @@
     <div class="header-links-wrap">
         <div class="container">
             <ul class="head-links">
-                <li><a [routerLink]="[ '/' ]">Home</a></li>
+                <li><a [routerLink]="[ '/' ]">{{ 'HOME.HOME' | translate }}</a></li>
                 <li><a routerLink="/vendor-register">New Vendors</a></li>
                 <li class="mob-hide">
                     <a href="javascript:void(0);" class="fav-list">
@@ -61,6 +61,18 @@
                         
                     </div>
                 </li>
+
+                <!-- <li>
+                        <div class="dropdown">
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" 
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lang </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" (click)="switchLanguage('en')">Eng</a>    
+                                    <a class="dropdown-item" (click)="switchLanguage('fr')">Fr</a>
+                                </div>
+                            </div>
+                </li> -->
+
                 <li class="show-for-mob">
                     <div class="icon-grp">
                        <a href="javascript:void(0);" class=""><i class="fas fa-envelope"></i></a>

@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ExtraOptions } from '@angular/router';
-import { AdminGuard } from './guards';
 
 const routes: Routes = [
   {
     path: '',
     loadChildren: './pages/pages.module#PagesModule'
   },
-  {
-    path: 'admin',
-    loadChildren: './pages/admin/admin.module#AdminModule',
-    // canActivate: [ AdminGuard ]
-  },
+  // {
+  //   path: 'admin',
+  //   loadChildren: './pages/admin/admin.module#AdminModule',
+  // },
   {
     path: 'error',
     loadChildren: './pages/error/error.module#ErrorModule'

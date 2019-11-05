@@ -440,6 +440,9 @@ ul {
     font-size: 16px;
 }
 
+.owl-theme .owl-nav [class*='owl-']:hover{
+    background: transparent;
+}
 /*cstm-btn*/
 .cstm-btn {
     background: transparent;
@@ -906,8 +909,15 @@ nav#tool-nav #menus-list li a:hover {
     border-radius: 50%;
     justify-content: center;
     margin: 0px auto;
+    transition: all 0.3s ease;
 }
-
+.tab-item a:hover .service-icon, .package-item a:hover .service-icon {
+    transform: rotate(-360deg) scale(1.1);
+    background: #36496c;
+}
+.package-item a:hover .service-icon {
+    background:#eda208;
+}
 .tab-item a.activelink .service-icon,
 .package-item a.activelink .service-icon {
     background: #36496c;
@@ -3161,12 +3171,7 @@ font-size: 14px;
     height: 150px;
     width: 150px;
 }
-// #tool-nav #menus-list span.nav-item-icon svg path{
-//     fill: #2c3e5d;
-//     stroke-width: 10px;
-//     stroke: rgb(44, 62, 93);
-//     transition: all 0.3s ease;
-// }
+
 #tool-nav #menus-list span.nav-item-icon svg path{
     background: url(./assets/images/banner-bg.png);
 }
@@ -3196,8 +3201,6 @@ font-size: 14px;
     margin-bottom: 10px;
 }
 
-
-// email verify 
 .conformation-msg-card{
     max-width: 600px;
     display: block;
@@ -3247,3 +3250,21 @@ font-size: 14px;
 .show-for-mob{
   display: none;
 }
+.category_icon {
+    max-width: 40px;
+    width: auto !important;
+}
+.alert{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+   -webkit-box-pack: justify;
+       -ms-flex-pack: justify;
+           justify-content: space-between;
+}
+/*side calender css*/
+
+/****************/

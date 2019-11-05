@@ -68,7 +68,10 @@ async function regenerateEmailVerifyLink(req) {
   await transporter.sendMail(mailOptions, function(error, info){
     if (error) throw error;
   });
-  return {status:200, message:"An e-mail with verification link has been sent to " + user.email + ". Please click on the link to verify your account."};
+  return {
+    message: `An e-mail with verification link has been sent to 
+      ${user.email}. Please click on the link to verify your account.`
+    };
 }
 
 async function ResponseResetPassword(userParam) {

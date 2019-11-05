@@ -1,6 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 declare var $: any;
-
+import {TranslateService} from '@ngx-translate/core';
 import { AuthenticationService } from '../../pages/auth/authentication.service';
 
 @Component({
@@ -10,12 +10,10 @@ import { AuthenticationService } from '../../pages/auth/authentication.service';
 })
 export class HeaderComponent implements OnInit, AfterViewInit {
   
+  constructor(public auth: AuthenticationService,
+    public translate: TranslateService) { }
 
-  constructor(public auth: AuthenticationService) {   }
-
-  ngOnInit() {
-    
-  }
+  ngOnInit() { }
 
   ngAfterViewInit(): void {
     //navigation js
@@ -41,6 +39,10 @@ export class HeaderComponent implements OnInit, AfterViewInit {
         $(".toolbox").removeClass("active");
     });
     //End Toolbox animation
+  }
+
+  switchLanguage(language: string) {
+    this.translate.use(language);
   }
 
 }
