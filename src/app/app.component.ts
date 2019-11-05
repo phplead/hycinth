@@ -1,13 +1,11 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
 import { AddContentService } from './services/add-content.service';
 declare  var $: any;
 
 @Component({
   selector: 'app-root',
-  template: '<router-outlet></router-outlet>',
-  styleUrls: ['./app.component.scss']
+  template: '<router-outlet></router-outlet>'
 })
 
 export class AppComponent implements AfterViewInit {

@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import { RouterModule, Routes } from '@angular/router';
 import { OwlModule } from 'ngx-owl-carousel';
 import { TranslateModule } from '@ngx-translate/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const homeRoutes: Routes = [
   {
@@ -17,6 +18,8 @@ const homeRoutes: Routes = [
     CommonModule,
     OwlModule,
     TranslateModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     RouterModule.forChild(homeRoutes)
   ]

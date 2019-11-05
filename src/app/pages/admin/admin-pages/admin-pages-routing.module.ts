@@ -1,30 +1,31 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router';
+import { AdminPagesComponent } from './admin-pages.component';
 
-// component: AdminComponent,
-    // children: [
-      // {
-      //   path: 'admin-login',
-      //   loadChildren: './admin-pages/admin-login/admin-login.module#AdminLoginModule'
-      // },
-      // {
-      //   path: 'dashboard',
-      //   loadChildren: './admin-pages/dashboard/dashboard.module#DashboardModule'
-      // },
-      // {
-      //   path: 'admin-users',
-      //   loadChildren: './admin-pages/admin-users/admin-users.module#AdminUsersModule'
-      // },
-      // {
-      //   path: '',
-      //   redirectTo: 'dashboard',
-      //   pathMatch: 'full'
-      // }
-    // ]
+const adminRoutes: Routes = [
+  {
+    path: '',
+    component: AdminPagesComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: './admin-dashboard/admin-dashboard.module#AdminDashboardModule'
+      },
+      {
+        path: 'admin-users',
+        loadChildren: './admin-users/admin-users.module#AdminUsersModule'
+      },
+      {
+        path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      }
+    ]
+  }
+]
 
 @NgModule({
-  imports: [
-    CommonModule
-  ]
+  imports: [RouterModule.forChild(adminRoutes)],
+  exports: [RouterModule]
 })
 export class AdminPagesRoutingModule { }
