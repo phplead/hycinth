@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AdminComponent } from './admin.component';
 
 const adminRoutes: Routes = [
   {
     path: '',
-    component: AdminComponent
+    loadChildren: './admin-pages/admin-pages.module#AdminPagesModule'
+  },
+  {
+    path: 'admin-login',
+    loadChildren: './admin-pages/admin-login/admin-login.module#AdminLoginModule'
   }
 ];
 

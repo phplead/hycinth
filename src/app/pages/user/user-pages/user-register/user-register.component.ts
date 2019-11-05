@@ -15,21 +15,12 @@ declare var $: any;
   styleUrls: ['./user-register.component.scss']
 })
 export class UserRegisterComponent implements OnInit, AfterContentInit {
-    ngAfterContentInit(): void {
-        $('.video').parent().click(function () {
-            if($(this).children(".video").get(0).paused){
-                $(this).children(".video").get(0).play();
-                $(this).children(".playButton").fadeOut();
-            }else{
-                $(this).children(".video").get(0).pause();
-                $(this).children(".playButton").fadeIn();
-            }
-          });
-    }
+    
   registerForm: FormGroup;
   loading = false;
   submitted = false;
-//   error = '';
+  emailRegEx = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
+  
   constructor(
       private formBuilder: FormBuilder,
       private router: Router,
@@ -44,16 +35,28 @@ export class UserRegisterComponent implements OnInit, AfterContentInit {
 
   ngOnInit() {
       this.registerForm = this.formBuilder.group({
-          firstName: ['', Validators.required],
-          lastName: ['', Validators.required],
-          email: ['', [Validators.required, Validators.email]],
+          firstName: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+')]],
+          lastName: ['', [Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z ]+')]],
+          email: ['', [Validators.required, Validators.pattern(this.emailRegEx)]],
           role: ['User'],
-          password: ['', [Validators.required, Validators.minLength(6)]],
+          password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(20)]],
           confirm_password: ['', Validators.required]
       },{
           validators: MustMatch('password', 'confirm_password')
       });
   }
+
+  ngAfterContentInit(): void {
+    $('.video').parent().click(function () {
+        if($(this).children(".video").get(0).paused){
+            $(this).children(".video").get(0).play();
+            $(this).children(".playButton").fadeOut();
+        }else{
+            $(this).children(".video").get(0).pause();
+            $(this).children(".playButton").fadeIn();
+        }
+      });
+}
 
   // convenience getter for easy access to form fields
   get f() { return this.registerForm.controls; }

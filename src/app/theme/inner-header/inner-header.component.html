@@ -9,7 +9,7 @@
                 </button>
                 
                 <ul class="inn-top-navigation">
-                    <li><a [routerLink]="[ '/' ]">Home</a></li>
+                    <li><a [routerLink]="[ '/' ]">{{ 'HOME.HOME' | translate }}</a></li>
                     <li *ngIf="!auth.currentUserValue"><a routerLink="/vendor-register">New Vendors</a></li>
                     <li>
                         <a href="javascript:void(0);"><i class="fas fa-heart"></i></a>

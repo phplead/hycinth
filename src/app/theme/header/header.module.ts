@@ -11,7 +11,7 @@ import { ToolboxModule } from '../toolbox/toolbox.module';
     CommonModule,
     SharedModule,
     MenuModule,
-    ToolboxModule
+    ToolboxModule,
   ],
   exports: [HeaderComponent]
 })

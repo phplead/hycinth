@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 declare var $: any;
 import { AuthenticationService } from '../../pages/auth/authentication.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-inner-header',
@@ -9,7 +10,8 @@ import { AuthenticationService } from '../../pages/auth/authentication.service';
 })
 export class InnerHeaderComponent implements OnInit, AfterViewInit {
   
-  constructor(public auth: AuthenticationService) {   }
+  constructor(public auth: AuthenticationService,
+    public translate: TranslateService) {   }
 
   ngOnInit() {  }
 
@@ -36,7 +38,11 @@ export class InnerHeaderComponent implements OnInit, AfterViewInit {
         $("#tool-nav").removeClass("active");
         $(".toolbox").removeClass("active");
     });
-    //End Toolbox animation
+    // End Toolbox animation
+  }
+
+  switchLanguage(language: string) {
+    this.translate.use(language);
   }
 
 }

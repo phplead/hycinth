@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AuthenticationService } from '../authentication.service';
+import { TranslateService } from '@ngx-translate/core';
 
 declare var $: any;
 
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit, AfterContentInit {
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
         private router: Router,
-        private authenticationService: AuthenticationService,
+        private authenticationService: AuthenticationService
         // private auth: AuthService,
         // private alertService: AlertService
     ) {
