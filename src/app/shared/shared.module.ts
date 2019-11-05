@@ -6,11 +6,13 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslateModule } from '@ngx-translate/core';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { AlertModule } from '../pages/alert/alert.module';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
+    AlertModule,
     OwlModule,
     RouterModule,
     HttpClientModule,
@@ -19,6 +21,6 @@ import {NgxPaginationModule} from 'ngx-pagination';
     NgxPaginationModule
   ],
   exports: [ OwlModule, RouterModule, ReactiveFormsModule, HttpClientModule,
-    TranslateModule, NgxPaginationModule ]
+    TranslateModule, NgxPaginationModule, AlertModule ]
 })
 export class SharedModule { }
