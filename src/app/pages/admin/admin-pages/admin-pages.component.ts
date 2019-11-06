@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthenticationService } from '../../auth/authentication.service';
 
 @Component({
   selector: 'app-admin-pages',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminPagesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public auth: AuthenticationService) { }
 
   ngOnInit() {  }
 

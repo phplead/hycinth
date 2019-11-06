@@ -13,6 +13,7 @@ export class AppComponent implements AfterViewInit {
     
     if(window.location.pathname.startsWith('/admin')) {
       this.addContent.addCss('./assets/css/sb-admin-2.min.css');
+      $('body').addClass('bg-gradient-primary');
     } else {
       this.addContent.addCss('./assets/css/styles.css');
       this.addContent.addCss('./assets/css/responsive.css');

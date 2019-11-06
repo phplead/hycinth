@@ -31,7 +31,7 @@
                                            <span class="input-icon"><i class="fas fa-envelope"></i></span>
                                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                                     <div *ngIf="f.email.errors.required">Email is required</div>
-                                    <div *ngIf="f.email.errors.email">Email is not valid</div>
+                                    <div *ngIf="f.email.errors.pattern">Email must be valid</div>
                                 </div>
                                        </div>                              
                                    </div>

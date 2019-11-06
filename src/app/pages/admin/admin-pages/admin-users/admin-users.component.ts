@@ -13,10 +13,10 @@ export class AdminUsersComponent implements OnInit {
   users: User[] = [];
 
   constructor(private adminUserSer: AdminUsersService) {
-    this.adminUserSer.getusers()
-    .subscribe(data => {
-      console.log('data ', data);
-    });
+    // this.adminUserSer.getusers()
+    // .subscribe(data => {
+    //   console.log('data ', data);
+    // });
   }
 
   ngOnInit() {  }

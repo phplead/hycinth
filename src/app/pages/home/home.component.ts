@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 declare var $: any;
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit() {
-    // AOS.init();
+    AOS.init();
   }
 
   images = [];
@@ -110,15 +111,16 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
 
-    setTimeout(() =>{
+    setTimeout(() => {
+      AOS.refresh();
       this.showEventsOne = true;
     },1500)
 
     $( ".form-tab-slider .owl-prev").html('<i class="fas fa-chevron-left"></i>');
     $( ".form-tab-slider .owl-next").html('<i class="fas fa-chevron-right"></i>');
 
-    $( ".form-tab-slider .owl-prev").html('<i class="fas fa-chevron-left"></i>');
-    $( ".form-tab-slider .owl-next").html('<i class="fas fa-chevron-right"></i>');
+    $( ".packages-slider .owl-prev").html('<i class="fas fa-chevron-left"></i>');
+    $( ".packages-slider .owl-next").html('<i class="fas fa-chevron-right"></i>');
     
     $(document).ready(function(){
       //tabbing js

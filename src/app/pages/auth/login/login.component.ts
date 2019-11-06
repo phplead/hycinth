@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit, AfterContentInit {
     submitted = false;
     returnUrl: string;
     errorMessage = '';
-
+    emailRegEx = '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$';
     constructor(
         private formBuilder: FormBuilder,
         private route: ActivatedRoute,
@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit, AfterContentInit {
 
     ngOnInit() {
         this.loginForm = this.formBuilder.group({
-            email: ['', [Validators.required, Validators.email]],
+            email: ['', [Validators.required, Validators.pattern(this.emailRegEx)]],
             password: ['', Validators.required]
         });
 
