@@ -6,7 +6,7 @@ import { User, Role } from '../../models';
 import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({ providedIn: 'root' })
-export class AuthenticationService {
+export class AdminAuthenticationService {
     
     private currentUserSubject: BehaviorSubject<User>;
     public currentUser: Observable<User>;
@@ -16,8 +16,7 @@ export class AuthenticationService {
         if(isPlatformBrowser(this.platformId)) {
             this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('envisiunUser')));
             this.currentUser = this.currentUserSubject.asObservable();
-        }
-        
+        }        
     }
 
     public get currentUserValue(): User {
@@ -28,7 +27,7 @@ export class AuthenticationService {
         return this.http.post<User>('users/authenticate', { email, password })
             .pipe(map(user => {
                 // login successful if there's a jwt token in the response
-                if (user && user.token && user.role !== Role.Admin) {
+                if (user && user.token && user.role === Role.Admin) {
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     if(isPlatformBrowser(this.platformId)) {
                         localStorage.setItem('envisiunUser', JSON.stringify(user));
@@ -39,10 +38,6 @@ export class AuthenticationService {
                 return user;
             }));
     }
-
-    register(user: any) {
-       return this.http.post('users/register', user);
-    }
     
     forgot_password(email) {
         return this.http.post<any>(`users/forgot_password`, email)
@@ -51,14 +46,6 @@ export class AuthenticationService {
     regenerateEmailVerifyLink(email) {
         return this.http.post<any>(`users/regenerateEmailVerifyLink`, email);
     }
-
-    // token_validates(token: string) {
-    //     return this.http.get<any>(`users/reset/${token}`);
-    // }
-
-    EmailVerify(token) {
-        return this.http.get(`users/verifyEmail/${token}`);
-      }
 
     resetPassword(data) {
         return this.http.post<any>(`users/reset_password`, data);
@@ -70,6 +57,5 @@ export class AuthenticationService {
             localStorage.removeItem('envisiunUser');
         }
         this.currentUserSubject.next(null);
-
     }
 }

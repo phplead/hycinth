@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from './../../../../pages/auth/authentication.service';
+import { AdminAuthenticationService } from '../../admin-authentication.service';
+import { Router } from '@angular/router';
+declare var $: any;
 
 @Component({
   selector: 'app-admin-header',
@@ -8,8 +10,15 @@ import { AuthenticationService } from './../../../../pages/auth/authentication.s
 })
 export class AdminHeaderComponent implements OnInit {
 
-  constructor(public auth: AuthenticationService) { }
+  constructor(public auth: AdminAuthenticationService,
+    private router: Router) { }
 
   ngOnInit() {  }
+
+  logout() {
+    // this.auth.logout();
+    // this.router.navigate(['/admin/admin-login']);
+    // $('').model()
+  }
 
 }

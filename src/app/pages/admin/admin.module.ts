@@ -14,6 +14,14 @@ const adminRoutes: Routes = [
   {
     path: 'admin-login',
     loadChildren: './admin-pages/admin-login/admin-login.module#AdminLoginModule'
+  },
+  {
+    path: 'admin-password',
+    loadChildren: './admin-pages/admin-password/admin-password.module#AdminPasswordModule'
+  },
+  {
+    path: 'admin-error',
+    loadChildren: './admin-pages/admin-error/admin-error.module#AdminErrorModule'
   }
 ];
 

@@ -119,8 +119,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
     $( ".form-tab-slider .owl-prev").html('<i class="fas fa-chevron-left"></i>');
     $( ".form-tab-slider .owl-next").html('<i class="fas fa-chevron-right"></i>');
 
-    $( ".form-tab-slider .owl-prev").html('<i class="fas fa-chevron-left"></i>');
-    $( ".form-tab-slider .owl-next").html('<i class="fas fa-chevron-right"></i>');
+    $( ".packages-slider .owl-prev").html('<i class="fas fa-chevron-left"></i>');
+    $( ".packages-slider .owl-next").html('<i class="fas fa-chevron-right"></i>');
     
     $(document).ready(function(){
       //tabbing js

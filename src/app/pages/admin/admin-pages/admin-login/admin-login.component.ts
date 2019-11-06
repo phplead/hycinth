@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { first } from 'rxjs/operators';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthenticationService } from './../../../../pages/auth/authentication.service';
 import { Role } from 'src/app/models';
+import { AdminAuthenticationService } from '../../admin-authentication.service';
 
 @Component({
   selector: 'app-admin-login',
@@ -22,7 +22,7 @@ export class AdminLoginComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService) {
+    private authenticationService: AdminAuthenticationService) {
       if (this.authenticationService.currentUserValue && this.authenticationService.currentUserValue.role === Role.Admin) {
         this.router.navigate(['/admin']);
       }
@@ -52,8 +52,11 @@ export class AdminLoginComponent implements OnInit {
         this.authenticationService.login(this.f.email.value, this.f.password.value)
             .pipe(first())
             .subscribe(
-                data => {
-                  this.router.navigate([this.returnUrl || data.role.toLowerCase()])
+                user => {
+                  console.log('user ', user)
+                  if(user.token && user.role === Role.Admin) {
+                    this.router.navigate([this.returnUrl || user.role.toLowerCase()]);
+                  }
                 },
                 error => {
                     // this.error(error);
