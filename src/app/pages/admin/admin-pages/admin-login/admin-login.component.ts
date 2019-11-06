@@ -53,10 +53,8 @@ export class AdminLoginComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 user => {
-                  console.log('user ', user)
-                  if(user.token && user.role === Role.Admin) {
+                  if(user.token && user.role === Role.Admin)
                     this.router.navigate([this.returnUrl || user.role.toLowerCase()]);
-                  }
                 },
                 error => {
                     // this.error(error);
